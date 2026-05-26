@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:3000"  # expone el puerto 3000 de Vite (si configuraste vite.config.js)
+      - "3000:3000"  # expone el puerto 3000 de Vite (si configuraste vite.config.js)
     volumes:
       - .:/app
       - /app/node_modules
