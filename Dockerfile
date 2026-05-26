@@ -2,8 +2,6 @@ FROM node:22.15.0-alpine AS build
 
 WORKDIR /app
 
-ENV NODE_ENV=production
-
 # Copiar package.json y lock
 COPY package*.json ./
 
