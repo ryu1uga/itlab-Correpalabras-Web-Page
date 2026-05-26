@@ -28,6 +28,6 @@ RUN chown -R 0:0 /usr/share/nginx/html && \
 # Copiar configuración de nginx si necesitas SPA fallback (opcional)
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["nginx", "-g", "daemon off;"]
