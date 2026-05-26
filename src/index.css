@@ -1,0 +1,151 @@
+:root {
+  /* Main colors */
+  --main-color: #FF5517;
+  --main-color-hover: #D63E12;
+  --title-color: #333;
+  --subtitle-color: #2C3E50;
+  --paragraph-color: #555;
+
+  /* Page margin */
+  --page-margin-top: 140px;
+  --page-margin-bottom: 40px;
+
+  --fichas-page-margin-top: 180px;
+  --fichas-page-margin-bottom: 80px;
+
+  /* General */
+  --font-size-title: 2.5rem;
+  --font-size-subtitle: 1.5rem;
+  --font-size-paragraph: 1.1rem;
+
+  /* Home Page */
+  --font-size-home-video: 30px;
+  --font-size-home-testimonial-text: 1rem;
+  --font-size-home-testimonial-author: 1rem;
+  --font-size-home-testimonial-role: 0.9rem;
+  
+  /* About Page */
+  --font-size-about-announcement: 1.5rem;
+  --font-size-about-button: 0.7rem;
+  
+  /* Investigations Page*/
+  --font-size-investigations-article-subtitle: 1.5rem;
+  --font-size-investigations-article-section: 1.8rem;
+  --font-size-investigations-article-magazine: 1rem;
+  --font-size-investigations-article-title: 1.2rem;
+  --font-size-investigations-article-button: 0.9rem;
+  --font-size-investigations-article-reward: 0.8rem;
+
+  /* Activities Page */
+  --font-size-activities-button: 1.2rem;
+  --font-size-activities-errormsg: 1rem;
+
+  /* CreateStories Page */
+  --font-size-stories-announcement: 2.5rem;
+  --font-size-stories-download: 1.3rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::selection {
+  background-color: var(--main-color);
+  color: white;
+}
+
+code {
+  font-family: 'Roboto', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+  :root {
+    --font-size-home-video: 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --font-size-home-video: 23px;
+  }
+}
+
+@media (max-width: 982px) {
+  :root {
+    --font-size-subtitle: 1.2rem;
+    --font-size-paragraph: 0.9rem;
+
+    --font-size-about-announcement: 1.2rem;
+    --font-size-about-button: 0.6rem;
+
+    --font-size-investigations-article-subtitle: 1.2rem;
+    --font-size-investigations-article-section: 1.5rem;
+    --font-size-investigations-article-magazine: 0.8rem;
+    --font-size-investigations-article-title: 1rem;
+    --font-size-investigations-article-button: 0.7rem;
+    --font-size-investigations-article-reward: 0.6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --font-size-home-testimonial-text: 0.9rem;
+  }
+}
+
+@media (max-width: 840px) {
+  :root {
+    --font-size-home-video: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-about-announcement: 1.4rem;
+
+    --font-size-investigations-article-subtitle: 1.5rem;
+
+    --font-size-stories-announcement: 1.65rem;
+  }
+}
+
+@media (max-width: 533px) {
+  :root {
+    --font-size-about-announcement: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-margin-top: 90px;
+    --page-margin-bottom: 30px;
+    --fichas-page-margin-top: 110px;
+    --fichas-page-margin-bottom: 50px;
+
+    --font-size-title: 1.5rem;
+    --font-size-subtitle: 1.1rem;
+    --font-size-paragraph: 0.8rem;
+
+    --font-size-investigations-article-subtitle: 1.1rem;
+    --font-size-investigations-article-section: 1.3rem;
+
+    --font-size-activities-button: 0.9rem;
+    --font-size-activities-errormsg: 0.7rem;
+
+    --font-size-stories-announcement: 1.5rem;
+    --font-size-stories-download: 1.1rem;
+  }
+}

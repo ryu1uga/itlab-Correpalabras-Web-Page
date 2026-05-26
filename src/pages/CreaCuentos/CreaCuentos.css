@@ -1,0 +1,229 @@
+.creacuentos-page {
+  margin-top: var(--page-margin-top);
+}
+
+.creacuentos-page h3 {
+  color: var(--subtitle-color);
+  font-size: var(--font-size-subtitle);
+  position: relative;
+  padding-left: 15px;
+}
+
+.creacuentos-page h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--main-color);
+  border-radius: 2px;
+}
+
+.creacuentos-page__container1 {
+  padding: 0 5%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.creacuentos-page__container1__about {
+  display: flex;
+  gap: 50px;
+  padding: 30px 50px 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.creacuentos-page__container1__about:hover {
+  transform: translateY(-5px);
+}
+
+.creacuentos-page__container1__about__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.creacuentos-page__container1__about__text p {
+  font-size: var(--font-size-paragraph);
+  line-height: 1.3;
+  color: var(--paragraph-color);
+  text-align: justify;
+}
+
+.creacuentos-page__container1__about img {
+  height: 166px;
+  width: auto;
+}
+
+.creacuentos-page__container1__winners {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 50px 30px;
+}
+
+.creacuentos-page__container1__winners__stories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.creacuentos-page__container1__winners__stories-grid__story-card {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.creacuentos-page__container1__winners__stories-grid__story-card:hover {
+  transform: translateY(-5px);
+}
+
+.creacuentos-page__container1__winners__stories-grid__story-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.creacuentos-page__container1__announcement {
+  font-size: var(--font-size-stories-announcement);
+  font-weight: bold;
+  color: var(--main-color);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+
+
+.creacuentos-page__container2 {
+  background-color: #F5F5F5;
+  padding: 30px;
+  text-align: center;
+}
+
+.creacuentos-page__container2 p {
+  font-size: var(--font-size-stories-download);
+  color: var(--paragraph-color);
+  margin: 0;
+  margin-bottom: 30px;
+  display: inline-block;
+  position: relative;
+}
+
+.creacuentos-page__container2 p::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--main-color);
+}
+
+.creacuentos-page__container2:hover p::after {
+  animation: underlined 1s forwards;
+}
+
+@keyframes underlined {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.creacuentos-page__container2__download {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 80px;
+  margin-bottom: 30px;
+}
+
+.creacuentos-page__container2__download a {
+  border: 1px solid transparent;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  border-radius: 15px;
+}
+
+.creacuentos-page__container2__download img {
+  width: 430px;
+  height: auto;
+  border-radius: 15px;
+}
+
+@media (max-width: 853px) {
+  .creacuentos-page__container1__winners__stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .creacuentos-page__container2__download {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 540px) {
+  .creacuentos-page__container1__about {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .creacuentos-page__container1 {
+    padding: 0 30px;
+  }
+
+  .creacuentos-page__container1__about img {
+    height: auto;
+    width: 100%;
+  }
+
+  .creacuentos-page__container1__winners__stories-grid {
+    gap: 10px;
+  }
+
+  .creacuentos-page__container2 {
+    padding: 30px 60px;
+  }
+
+  .creacuentos-page__container2__download {
+    margin-bottom: 0;
+  }
+
+  .creacuentos-page__container2__download img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .creacuentos-page__container1__winners__stories-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .creacuentos-page h3 {
+    margin-top: 0;
+  }
+
+  .creacuentos-page__container1__about {
+    padding: 30px;
+  }
+
+  .creacuentos-page__container1__winners {
+    padding: 30px;
+  }
+}
