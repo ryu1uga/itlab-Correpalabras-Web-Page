@@ -13,17 +13,18 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Reemplazar la configuración por defecto de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# IMPORTANTE: Permisos para el grupo ROOT (GID 0) exigido por OpenShift
+# PERMISOS CRÍTICOS: OpenShift usa un UID aleatorio pero SIEMPRE pertenece al grupo GID 0 (root)
 RUN chown -R 101:0 /usr/share/nginx/html && \
     chmod -R g+rwX /usr/share/nginx/html && \
+    # Damos permisos al grupo 0 sobre las carpetas de Nginx y logs
     chown -R 101:0 /var/cache/nginx /var/log/nginx /etc/nginx && \
     chmod -R g+rwX /var/cache/nginx /var/log/nginx /etc/nginx && \
-    touch /tmp/nginx.pid && \
-    chown 101:0 /tmp/nginx.pid && \
-    chmod g+rw /tmp/nginx.pid
+    # En Alpine, /var/run suele ser un enlace a /run. Aseguramos permisos ahí para el PID por defecto
+    chown -R 101:0 /var/run /run && \
+    chmod -R g+rwX /var/run /run
 
-# Usar el UID 101 (usuario nginx de la imagen alpine) por compatibilidad local
-USER 101
+# Forzamos a ejecutar con UID 101 y GID 0 (Grupo root) para entornos locales
+USER 101:0
 
 EXPOSE 3000
 
