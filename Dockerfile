@@ -1,31 +1,30 @@
 FROM node:22.15.0-alpine AS builder
-
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm ci
-
 COPY . .
 RUN npm run build
 
 FROM nginx:alpine
 
-# Copiar el build
+# Copiar el build de la SPA
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Config nginx para SPA + puerto 8080 (OpenShift no permite root/80)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Reemplazar la configuración por defecto de Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Permisos para OpenShift (corre como usuario no-root)
-RUN chown -R nginx:nginx /usr/share/nginx/html && \
-    chown -R nginx:nginx /var/cache/nginx && \
-    chown -R nginx:nginx /var/log/nginx && \
-    chown -R nginx:nginx /etc/nginx/conf.d && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid
+# IMPORTANTE: Permisos para el grupo ROOT (GID 0) exigido por OpenShift
+RUN chown -R 101:0 /usr/share/nginx/html && \
+    chmod -R g+rwX /usr/share/nginx/html && \
+    chown -R 101:0 /var/cache/nginx /var/log/nginx /etc/nginx && \
+    chmod -R g+rwX /var/cache/nginx /var/log/nginx /etc/nginx && \
+    touch /tmp/nginx.pid && \
+    chown 101:0 /tmp/nginx.pid && \
+    chmod g+rw /tmp/nginx.pid
 
-USER nginx
+# Usar el UID 101 (usuario nginx de la imagen alpine) por compatibilidad local
+USER 101
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["nginx", "-g", "daemon off;"]
